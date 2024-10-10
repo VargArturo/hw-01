@@ -41,7 +41,7 @@ filter(review_scores_rating == 100)
 ```
 
 
-_price, neighbourhood, bathrooms, bedrooms, beds, review_scores_rating all have NAs. The id is 860170 _
+_price, neighbourhood, bathrooms, bedrooms, beds, review_scores_rating all have NA entries. The place with most num of reviews and a review score of 100 has an id of 860170 _
 
 ------------------------------------------------------------------------------
 
@@ -65,7 +65,7 @@ mean_price
 ```
 
 
-_494 rows. Minimum, maximum, and average price are 10, 800 and 153.1368 respectively_
+_494 places with a stay price of more than 100 at Old Town. Minimum, maximum, and average price are 10, 800 and 153.1368 respectively in Southside for places that accomodate 4 people_
 
 
 ------------------------------------------------------------------------------
@@ -77,14 +77,16 @@ edibnb %>%
 filter(neighbourhood == "Newington") %>%
 count(bathrooms)
 
-mutate(edibnb,
-       bathrooms = ceiling(bathrooms))
+edibnb %>%
+mutate(
+       bathrooms = ceiling(bathrooms)) %>%
+filter(bathrooms > bedrooms)
 
 
 ```
 
 
-_Remove this text, and add your answer for Exercise 3 here._
+_963 places with more bathrooms than bedrooms._
 
 
 
