@@ -31,28 +31,24 @@ council <- read_csv("data/council_assessments.csv")
 
 ```{r hw1-ex1}
 colSums(is.na(edibnb))
-#price, neighbourhood, bathrooms, bedrooms, beds, review_scores_rating all have NAs
+
 
 edibnb%>%
 arrange(desc(number_of_reviews)) %>%
 filter(review_scores_rating == 100)
 
-# id 860170 
 
 ```
 
 
-_Remove this text, and add your answer for Exercise 1 here._
+_price, neighbourhood, bathrooms, bedrooms, beds, review_scores_rating all have NAs. The id is 860170 _
 
 ------------------------------------------------------------------------------
 
 ## EXERCISE 2
 
 ```{r hw1-ex2}
-# remove this comment and add the code for Exercise 2 here
 nrow(filter(edibnb, neighbourhood  == "Old Town", price > 100))
-# 494
-#Calculate the minimum, maximum, and average price from the Airbnb properties in Southside for a single night stay for four people. (Note, four people can stay in a property for four or more people.) (3 pts)
 
 prices_data <- filter(edibnb, neighbourhood == "Southside", accommodates >= 4)
 
@@ -64,12 +60,12 @@ minimum_price
 maximum_price
 mean_price
 
-# minimum, maximum, and average price are 10, 800 and 153.1368 respectively 
+
 
 ```
 
 
-_Remove this text, and add your answer for Exercise 2 here._
+_494 rows. Minimum, maximum, and average price are 10, 800 and 153.1368 respectively_
 
 
 ------------------------------------------------------------------------------
@@ -77,6 +73,13 @@ _Remove this text, and add your answer for Exercise 2 here._
 ## EXERCISE 3
 
 ```{r hw1-ex3}
+edibnb %>%
+filter(neighbourhood == "Newington") %>%
+count(bathrooms)
+
+mutate(edibnb,
+       bathrooms = ceiling(bathrooms))
+
 
 ```
 
