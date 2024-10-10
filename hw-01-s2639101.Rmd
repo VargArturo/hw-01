@@ -1,6 +1,6 @@
 ---
 title: "hw-01"
-author: "s2639101"
+author: "Arturo Vargas (s2639101)"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -30,7 +30,14 @@ council <- read_csv("data/council_assessments.csv")
 ## EXERCISE 1
 
 ```{r hw1-ex1}
-# remove this comment and add the code for Exercise 1 here
+colSums(is.na(edibnb))
+#price, neighbourhood, bathrooms, bedrooms, beds, review_scores_rating all have NAs
+
+edibnb%>%
+arrange(desc(number_of_reviews)) %>%
+filter(review_scores_rating == 100)
+
+# id 860170 
 
 ```
 
