@@ -50,6 +50,21 @@ _Remove this text, and add your answer for Exercise 1 here._
 
 ```{r hw1-ex2}
 # remove this comment and add the code for Exercise 2 here
+nrow(filter(edibnb, neighbourhood  == "Old Town", price > 100))
+# 494
+#Calculate the minimum, maximum, and average price from the Airbnb properties in Southside for a single night stay for four people. (Note, four people can stay in a property for four or more people.) (3 pts)
+
+prices_data <- filter(edibnb, neighbourhood == "Southside", accommodates >= 4)
+
+minimum_price = min(prices_data$price)
+maximum_price = max(prices_data$price)
+mean_price = mean(prices_data$price)
+
+minimum_price
+maximum_price
+mean_price
+
+# minimum, maximum, and average price are 10, 800 and 153.1368 respectively 
 
 ```
 
@@ -62,7 +77,6 @@ _Remove this text, and add your answer for Exercise 2 here._
 ## EXERCISE 3
 
 ```{r hw1-ex3}
-# remove this comment and add the code for Exercise 3 here
 
 ```
 

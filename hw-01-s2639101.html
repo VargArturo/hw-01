@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="s2639101" />
+<meta name="author" content="Arturo Vargas (s2639101)" />
 
 <meta name="date" content="2024-10-10" />
 
@@ -351,7 +351,7 @@ display: none;
 
 
 <h1 class="title toc-ignore">hw-01</h1>
-<h4 class="author">s2639101</h4>
+<h4 class="author">Arturo Vargas (s2639101)</h4>
 <h4 class="date">2024-10-10</h4>
 
 </div>
@@ -405,14 +405,31 @@ here.</em></p>
 </div>
 <div id="exercise-2" class="section level2">
 <h2>EXERCISE 2</h2>
-<pre class="r"><code># remove this comment and add the code for Exercise 2 here</code></pre>
+<pre class="r"><code># remove this comment and add the code for Exercise 2 here
+nrow(filter(edibnb, neighbourhood  == &quot;Old Town&quot;, price &gt; 100))</code></pre>
+<pre><code>## [1] 494</code></pre>
+<pre class="r"><code># 494
+#Calculate the minimum, maximum, and average price from the Airbnb properties in Southside for a single night stay for four people. (Note, four people can stay in a property for four or more people.) (3 pts)
+
+prices_data &lt;- filter(edibnb, neighbourhood == &quot;Southside&quot;, accommodates &gt;= 4)
+
+minimum_price = min(prices_data$price)
+maximum_price = max(prices_data$price)
+mean_price = mean(prices_data$price)
+
+minimum_price</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="r"><code>maximum_price</code></pre>
+<pre><code>## [1] 800</code></pre>
+<pre class="r"><code>mean_price</code></pre>
+<pre><code>## [1] 153.1368</code></pre>
+<pre class="r"><code># minimum, maximum, and average price are 10, 800 and 153.1368 respectively </code></pre>
 <p><em>Remove this text, and add your answer for Exercise 2
 here.</em></p>
 <hr />
 </div>
 <div id="exercise-3" class="section level2">
 <h2>EXERCISE 3</h2>
-<pre class="r"><code># remove this comment and add the code for Exercise 3 here</code></pre>
 <p><em>Remove this text, and add your answer for Exercise 3
 here.</em></p>
 <hr />
