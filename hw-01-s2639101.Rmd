@@ -34,8 +34,8 @@ colSums(is.na(edibnb))
 
 
 edibnb%>%
-arrange(desc(number_of_reviews)) %>%
-filter(review_scores_rating == 100)
+  arrange(desc(number_of_reviews)) %>%
+  filter(review_scores_rating == 100)
 
 
 ```
@@ -74,13 +74,13 @@ _494 places with a stay price of more than 100 at Old Town. Minimum, maximum, an
 
 ```{r hw1-ex3}
 edibnb %>%
-filter(neighbourhood == "Newington") %>%
-count(bathrooms)
+  filter(neighbourhood == "Newington") %>%
+  count(bathrooms)
 
 edibnb %>%
-mutate(
-       bathrooms = ceiling(bathrooms)) %>%
-filter(bathrooms > bedrooms)
+  mutate(
+         bathrooms = ceiling(bathrooms)) %>%
+  filter(bathrooms > bedrooms)
 
 
 ```
@@ -95,12 +95,20 @@ _963 places with more bathrooms than bedrooms._
 ## EXERCISE 4
 
 ```{r hw1-ex4}
-# remove this comment and add the code for Exercise 4 here
+council %>%
+  mutate(
+    assessment_date = dmy(assessment_date)
+  ) %>%
+  filter(month(assessment_date) == 5)
 
+
+
+right_join(edibnb, council) %>%
+ count(neighbourhood)
 ```
 
 
-_Remove this text, and add your answer for Exercise 4 here._
+_296 properties where assessed in the month of may. The frequency table reveals that the council is not targeting neighbourhoods in Edinburgh equally as Leith particularly has over 10 times the amount of properties assessed as the next most developed neighbourhoods (Old Town). Moreover certain neighbourhoods have 30-40 properties assessed while others are in the 80-145 range thus demonstrating a disparity between the number of assesed properties between areas. Frequency of number of assesed properties within neighbourhoods gives us evidence of unequal targeting in neighbourhoods by the council however a more meaningful data summary would be comparing the proportion of properties reviewed by the council in each neighbourhood. We would do this by doing a left join of edibnb and council datasets to get the unreviewed properties and using the mutate function we would create a new table that takes in the right join table but divides each of the entries by the respective entry in the left join table using [row, "n"]._
 
 
 ------------------------------------------------------------------------------
