@@ -103,7 +103,7 @@ council %>%
 
 
 
-right_join(edibnb, council) %>%
+right_join(edibnb, council, by = "id") %>%
  count(neighbourhood)
 ```
 
